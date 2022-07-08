@@ -7,7 +7,8 @@ module.exports = {
     extend: {
       colors: {
         'primary-background': '#12232E',
-        'primary-font': '#F4F4F4'
+        'primary-font': '#F4F4F4',
+        'overlay': '#D2D2D2'
       }
     },
   },
