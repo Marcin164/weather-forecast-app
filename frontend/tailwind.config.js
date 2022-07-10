@@ -8,6 +8,7 @@ module.exports = {
       colors: {
         'primary-background': '#12232E',
         'primary-font': '#F4F4F4',
+        'dark-font': '#727272',
         'overlay': '#D2D2D2'
       }
     },

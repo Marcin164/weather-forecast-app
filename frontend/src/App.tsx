@@ -1,12 +1,14 @@
 import React from 'react'
-import Topbar from './Components/Topbar';
+import Topbar from './Layouts/Topbar';
+import Main from './Layouts/Main';
 import Navbar from './Layouts/Navbar';
 
 function App() {
   return (
-    <div className="bg-primary-background">
+    <div className="bg-primary-background min-h-screen">
       <Topbar/>
       <Navbar/>
+      <Main/>
     </div>
   );
 }
