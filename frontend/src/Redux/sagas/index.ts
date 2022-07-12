@@ -1,7 +1,8 @@
-import { call, put, takeLatest, takeEvery} from 'redux-saga/effects'
+import { all, call, put, fork } from 'redux-saga/effects'
+import fetchCitiesStart from './citiesSaga'
+import fetchWeatherStart from './weatherSaga'
 
-function* rootSaga(){
-    yield 0
+export default function* rootSaga():Generator<any>{
+    yield fork(fetchCitiesStart)
+    yield fork(fetchWeatherStart)
 }
-
-export default rootSaga
