@@ -4,13 +4,16 @@ import CloseButton from '../Components/Navbar/CloseButton'
 import SearchInput from '../Components/Navbar/SearchInput'
 import Overlay from '../Components/Navbar/Overlay'
 
-type Props = {}
+type Props = {
+    className?: string
+    onClick?: () => any
+}
 
 const Navbar = (props: Props) => {
     return (
         <>
-            <div className="absolute w-[250px] min-h-screen bg-primary-background top-0 z-10 hidden">
-                    <CloseButton/>
+            <div className={`absolute w-[250px] min-h-screen bg-primary-background top-0 z-10 ${props.className}`}>
+                    <CloseButton onClick={props.onClick}/>
                     <SearchInput/>
                     <NavbarTile city="Amsterdam" temperature={24} humidity={49} windStrength={5}/>
                     <NavbarTile city="Berlin" temperature={25} humidity={80} windStrength={3.4}/>
@@ -18,7 +21,7 @@ const Navbar = (props: Props) => {
                     <NavbarTile city="Kyoto" temperature={22} humidity={56} windStrength={4.2}/>
                     <NavbarTile city="Lyon" temperature={28} humidity={21} windStrength={3.8}/>
             </div>
-            <Overlay className="hidden"/>
+            <Overlay className={`${props.className}`}/>
         </>
     )
 }

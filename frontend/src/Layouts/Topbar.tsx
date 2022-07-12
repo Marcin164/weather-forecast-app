@@ -1,7 +1,9 @@
 import React from 'react'
 import Icon from '../Components/Common/Icon'
 
-type Props = {}
+type Props = {
+    onClick?: () => any
+}
 
 const Topbar = (props: Props) => {
     return (
@@ -12,7 +14,7 @@ const Topbar = (props: Props) => {
                 </div>
             </div>
             <div className="w-screen flex justify-around mt-2 py-2">
-                <Icon icon={`/images/cities.svg`} className="w-[40px] h-[40px]"/>
+                <Icon icon={`/images/cities.svg`} className="w-[40px] h-[40px]" onClick={props.onClick}/>
                 <div className="text-primary-font text-xl font-medium"><div>Amsterdam</div><div>Wednesday</div></div>
                 <Icon icon={`/images/settings.svg`} className="w-[40px] h-[40px]"/>
             </div>
