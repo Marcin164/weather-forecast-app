@@ -1,17 +1,21 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import Card from '../Card'
 import { ComposedChart, Line, XAxis, ResponsiveContainer, Tooltip, Bar } from 'recharts';
+import Loading from '../../../Layouts/Loading';
 
-type Props = {}
+type Props = {
+    data:Array<any>
+  }
 
-const index = (props: Props) => {
+const Rain = (props: Props) => {
+    if(!props.data) return <></>
     return (
         <Card>
             <ResponsiveContainer width="100%" height="100%">
-                <ComposedChart data={[{}]}>
-                    <XAxis dataKey="name" />
-                    <Line type="monotone" dataKey="uv" stroke="#8884d8" />
-                    <Bar type="monotone" dataKey="pv" fill="#82ca9d" />
+                <ComposedChart data={props.data}>
+                    <XAxis dataKey="hour" />
+                    <Bar type="monotone" dataKey="rainFall" fill="#82ca9d" />
                     <Tooltip />
                 </ComposedChart>
             </ResponsiveContainer>
@@ -19,4 +23,4 @@ const index = (props: Props) => {
     )
 }
 
-export default index
+export default Rain

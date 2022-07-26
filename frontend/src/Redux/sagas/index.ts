@@ -1,8 +1,8 @@
-import { all, call, put, fork } from 'redux-saga/effects'
-import fetchCitiesStart from './citiesSaga'
-import fetchWeatherStart from './weatherSaga'
+import { all, spawn } from 'redux-saga/effects'
+import fetchCitiesSaga from './citiesSaga'
+import fetchWeatherSaga from './weatherSaga'
 
-export default function* rootSaga():Generator<any>{
-    yield fork(fetchCitiesStart)
-    yield fork(fetchWeatherStart)
+export default function* rootSaga():any{
+    const sagas = [fetchCitiesSaga, fetchWeatherSaga]
+    yield all(sagas.map((saga) => spawn(saga)))
 }

@@ -2,17 +2,22 @@ import { call, put, takeEvery} from 'redux-saga/effects'
 import { WEATHER } from '../../Constants/actionConstants'
 import {fetchWeather} from '../../Services/weatherService'
 
-function* isFetchWeatherSuccess(action:any):Generator<any> {
+async function fetchedWeather() {
+    const res = await fetchWeather()
+    return res
+} 
+
+function* fetchWeatherSuccess(action:any):Generator<any> {
     try {
-        const weather:any = yield call(fetchWeather)
-        yield put({type: WEATHER.FETCH_WEATHER_SUCCESS, weather})
+        const weather:any = yield call(fetchedWeather)
+        yield put({type: WEATHER.WEATHER_FETCH_SUCCESS, weather: weather.data})
     } catch (error:any) {
-        yield put({type: WEATHER.FETCH_WEATHER_ERROR, message: error.message})
+        yield put({type: WEATHER.WEATHER_FETCH_ERROR, error})
     }
 }
 
-function* fetchWeatherStart(){
-    yield takeEvery(WEATHER.FETCH_WEATHER, isFetchWeatherSuccess)
+function* fetchWeatherSaga(){
+    yield takeEvery(WEATHER.WEATHER_FETCH, fetchWeatherSuccess)
 }
 
-export default fetchWeatherStart
+export default fetchWeatherSaga

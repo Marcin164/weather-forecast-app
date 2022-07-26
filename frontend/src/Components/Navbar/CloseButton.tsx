@@ -7,7 +7,7 @@ type Props = {
 
 const CloseButton = (props: Props) => {
   return (
-    <button className="w-full p-4" onClick={props.onClick}><Icon icon=""/></button>
+    <Icon icon="" onClick={props.onClick}/>
   )
 }
 

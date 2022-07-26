@@ -7,8 +7,9 @@ type Props = {
 }
 
 const Icon = (props: Props) => {
-  return (
+  return (<>
     <button className={props.className} onClick={props.onClick}><img src={props.icon} className="w-fit h-fit"/></button>
+    </>
   )
 }
 
