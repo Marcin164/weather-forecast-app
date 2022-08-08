@@ -1,11 +1,24 @@
-import { CITIES } from "../../Constants/actionConstants";
+import { CITIES, initialState } from "../../Constants/actionConstants";
 
-function fetchCities(state:any = [], action:any){
+function fetchCities(state:any = initialState, action:any){
     switch(action.type){
+        case CITIES.CITIES_FETCH:
+            return {
+                ...state,
+                isLoading:true
+            }
         case CITIES.CITIES_FETCH_SUCCESS:
-            return action.cities
+            return {
+                ...state,
+                isLoading: false,
+                data: action.cities
+            }
         case CITIES.CITIES_FETCH_ERROR:
-            return {error:action.error};
+            return {
+                ...state,
+                error: action.error,
+                isLoading:false
+            }
         default:
             return state
     }

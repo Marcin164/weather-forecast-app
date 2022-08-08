@@ -16,8 +16,8 @@ const TemperatureAndHumidity = (props: Props) => {
             <LineChart data={props.data}>
                 <XAxis dataKey="hour" />
                 <Tooltip />
-                <Line type="monotone" dataKey="temperature" stroke="#8884d8" />
-                <Line type="monotone" dataKey="humidity" stroke="#82ca9d" />
+                <Line type="monotone" dataKey="temperature" stroke="#fc4103" />
+                <Line type="monotone" dataKey="humidity" stroke="#0b5685" />
             </LineChart>
             </ResponsiveContainer>
         </Card>

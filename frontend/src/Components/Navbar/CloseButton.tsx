@@ -7,7 +7,7 @@ type Props = {
 
 const CloseButton = (props: Props) => {
   return (
-    <Icon icon="" onClick={props.onClick}/>
+    <Icon icon="/images/close.ico" className='xl:hidden 2xl:hidden p-4' onClick={props.onClick}/>
   )
 }
 

@@ -29,26 +29,24 @@ const WeatherSchema:Schema = new Schema({
 WeatherSchema.statics.getWeatherData = async function (){
   const weather = await this.find()
   if(weather) return weather;
-  throw Error("Could not find any data")
+  throw "Could not find any data"
 }
 
 WeatherSchema.statics.getCities = async function (){
-  const weather = await this.find({date: 1658786400000})
-  if(weather) return weather;
-  throw Error("Could not find any data")
-  // if(!weather) throw Error("Could not find any data")
-  // let cities:Array<any> = []
-  // for(let i = 0 ; i < weather.length ; i++){
-  //   let city = {
-  //     city: weather[i].city,
-  //     temperature: weather[i].data[12].temperature,
-  //     humidity: weather[i].data[12].humidity,
-  //     windStrength: weather[i].data[12].windStrength,
-  //     weather: weather[i].data[12].weather
-  //   }
-  //   cities.push(city)
-  // }
-  // return cities
+  const weather = await this.find({date: new Date().setHours(0,0,0,0)})
+  if(!weather) throw "Could not find any data"
+  let cities:Array<any> = []
+  for(let i = 0 ; i < weather.length ; i++){
+    let city = {
+      city: weather[i].city,
+      temperature: weather[i].data[12].temperature,
+      humidity: weather[i].data[12].humidity,
+      windStrength: weather[i].data[12].windStrength,
+      weather: weather[i].data[12].weather
+    }
+    cities.push(city)
+  }
+  return cities
 }
 
 const WeatherModel = model(

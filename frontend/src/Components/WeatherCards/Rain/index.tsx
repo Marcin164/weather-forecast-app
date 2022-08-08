@@ -15,7 +15,7 @@ const Rain = (props: Props) => {
             <ResponsiveContainer width="100%" height="100%">
                 <ComposedChart data={props.data}>
                     <XAxis dataKey="hour" />
-                    <Bar type="monotone" dataKey="rainFall" fill="#82ca9d" />
+                    <Bar type="monotone" dataKey="rainFall" fill="#1645de" />
                     <Tooltip />
                 </ComposedChart>
             </ResponsiveContainer>

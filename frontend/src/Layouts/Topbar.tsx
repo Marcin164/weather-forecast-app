@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { useSelector } from 'react-redux'
 import Icon from '../Components/Common/Icon'
+import Logo from '../Components/Common/Logo'
 
 type Props = {
     onClick?: () => any
@@ -24,15 +25,11 @@ const Topbar = (props: Props) => {
     
     
     return (
-        <div className="w-screen">
-            <div className="w-screen py-2 flex justify-center">
-                <div className="w-fit font-bold text-transparent text-3xl bg-clip-text bg-gradient-to-r from-yellow-300 to-cyan-600">
-                    WeatherApp
-                </div>
-            </div>
-            <div className="w-screen flex justify-around mt-2 py-2">
-                <Icon icon={`/images/cities.svg`} className="w-[40px] h-[40px]" onClick={props.onClick}/>
-                <div className="text-primary-font text-xl font-medium flex flex-col justify-center items-center"><div>{city || localStorage.getItem('city')}</div><div>{fullDate || localStorage.getItem('date')}</div></div>
+        <div className="w-full">
+            <Logo className="xl:hidden"/>
+            <div className="w-full flex justify-around xl:justify-evenly mt-2 py-2">
+                <Icon icon={`/images/cities.svg`} className="w-[40px] h-[40px] xl:hidden" onClick={props.onClick}/>
+                <div className="text-primary-font text-xl font-medium flex flex-col justify-center items-center xl:block"><div className="xl:inline-block xl:mr-4">{city || localStorage.getItem('city')}</div><div className="xl:inline-block">{fullDate || localStorage.getItem('date')}</div></div>
                 <Icon icon={`/images/settings.svg`} className="w-[40px] h-[40px]"/>
             </div>
         </div>

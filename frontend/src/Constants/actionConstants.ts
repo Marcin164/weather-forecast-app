@@ -10,7 +10,11 @@ export const CITIES:any = {
     CITIES_FETCH_ERROR: "CITIES_FETCH_ERROR"
 }
 
-export const TOGGLE_ERROR = "TOGGLE_ERROR"
-export const TOGGLE_LOADING = "TOGGLE_LOADING"
 export const SET_CITY = "SET_CITY"
 export const SET_DATE = "SET_DATE"
+
+export const initialState = {
+    isLoading: false,
+    error: null,
+    data: []
+}

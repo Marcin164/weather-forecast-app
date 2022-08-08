@@ -17,8 +17,9 @@ const Main = (props: Props) => {
     const [dates, setDates] = useState<Array<any>>([])
 
     const dispatch = useDispatch()
-    const date = useSelector((state: any) => state.date) || localStorage.getItem('date') || dispatch(setDate(new Date().setHours(0,0,0,0)))
+    const date = useSelector((state: any) => state.date) || dispatch(setDate(new Date().setHours(0,0,0,0)))
     const city = useSelector((state: any) => state.city) || localStorage.getItem('city') || dispatch(setCity("Amsterdam"))
+    const weathers = useSelector((state: any) => state.weather.data.filter(filterByCityAndDate)[0])
 
     const createDays = () => {
         let array: Array<Number> = []
@@ -37,24 +38,22 @@ const Main = (props: Props) => {
         return value.date === date && value.city === city
     }
 
-    const weathers = useSelector((state: any) => state.weather.filter(filterByCityAndDate)[0])
+
     if (!weathers) return <Loading />
     return (
-        <>
+        <div className="border-box xl:w-full h-full box-border pb-2 sm:px-4 md:px-4">
             <div className="h-[80] overflow-x-auto whitespace-nowrap box-border">
                 {dates.map((date, index) => <DayButton key={date} index={index} date={date} />)}
             </div>
-            <TemperatureAndHumidity data={weathers.data} /> {/* temperatura, wilgotność i insolacja */}
+            <TemperatureAndHumidity data={weathers.data} />
             <Weather data={weathers.data} />
-            <Rain data={weathers.data} /> {/* opady i szansa na opady */}
-            <AirQuality airQuality={weathers.airQuality} airQualityStatus={weathers.airQualityStatus} />
-            <SpecialEvents events={weathers.events} />
-        </>
+            <Rain data={weathers.data} />
+            <div className="md:flex md:justify-between">
+                <AirQuality airQuality={weathers.airQuality} airQualityStatus={weathers.airQualityStatus} />
+                <SpecialEvents events={weathers.events} />
+            </div>
+        </div>
     )
 }
 
 export default Main
-
-// Elbow plank
-// Leg raises
-// Hollow body

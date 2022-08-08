@@ -11,7 +11,7 @@ type Props = {
 const SpecialEvents = (props: Props) => {
   if(!props.events) return <></>
   return (
-    <Card>
+    <Card className="md:ml-2">
         <div className="py-4 px-2 grid grid-cols-6 gap-y-4 place-items-center whitespace-nowrap">
             {props.events.map((event:any) => (<Event key={event} event={event}/>))}
         </div>
