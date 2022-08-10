@@ -1,0 +1,12 @@
+{
+    "SLEET": "SLEET",
+    "CLOUDY": "CLOUDY",
+    "EARTHQUAKE": "EARTHQUAKE",
+    "FOG":"FOG",
+    "HAIL":"HAIL",
+    "HURRICANE":"HURRICANE",
+    "LIGHTNING":"LIGHTNING",
+    "METEOR":"METEOR",
+    "MOONRISE":"MOONRISE",
+    "RAIN":"RAIN"
+}

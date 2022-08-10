@@ -1,12 +1,17 @@
 import React from 'react'
 
 type Props = {
-    errorMessage?: any
+  errorMessage?: any
 }
 
 const ErrorNotification = (props: Props) => {
   return (
-    <div className="w-full h-[80px] bg-red-400 border-2 border-red-700 flex justify-center items-center"><span className="text-white font-bold text-xl">{props.errorMessage}</span></div>
+    <div className="w-screen h-screen bg-primary-background flex justify-center items-center">
+      <div className="text-center">
+        <div className="text-5xl font-bold text-white mb-4">Error occured</div>
+        <div className="text-2xl font-bold text-red-600 mt-4">{props.errorMessage}</div>
+      </div>
+    </div>
   )
 }
 

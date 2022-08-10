@@ -14,7 +14,7 @@ type Props = {
 const Navbar = (props: Props) => {
     const [searchValue, setSearchValue] = useState("");
 
-    const cities = useSelector((state: any) => state.cities.data)
+    const cities = useSelector((state: any) => state.cities)
 
     const getFilterValue = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value: string = e.currentTarget.value;

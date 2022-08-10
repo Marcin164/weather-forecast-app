@@ -12,9 +12,9 @@ function* fetchCitiesSuccess(action:any):Generator<any> {
     try {
         const cities:any = yield call(fetchedCities)
         if(cities.code === "ERR_NETWORK") throw cities
-        yield put(fetchedCitiesSuccess(cities))
+        yield put(fetchedCitiesSuccess(cities.data))
     } catch (error:any) {
-        yield put(fetchedCitiesError(error.message))
+        yield put(fetchedCitiesError(error))
     }
 }
 

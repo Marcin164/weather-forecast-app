@@ -8,13 +8,13 @@ async function fetchedWeather() {
     return res
 } 
 
-function* fetchWeatherSuccess(action:any):Generator<any> {
+function* fetchWeatherSuccess():Generator<any> {
     try {
         const weather:any = yield call(fetchedWeather)
         if(weather.code === "ERR_NETWORK") throw weather
-        yield put(fetchedWeatherSuccess(weather))
+        yield put(fetchedWeatherSuccess(weather.data))
     } catch (error:any) {
-        yield put(fetchedWeatherError(error.message))
+        yield put(fetchedWeatherError(error))
     }
 }
 

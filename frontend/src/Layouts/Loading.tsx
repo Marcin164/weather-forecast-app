@@ -5,7 +5,7 @@ type Props = {}
 
 const Loading = (props: Props) => {
   return (
-    <div className="w-full h-[80px] flex justify-center items-center"><ReactLoading type="bubbles" color="white"/></div>
+    <div className="w-full h-screen bg-primary-background flex justify-center items-center"><ReactLoading type="bubbles" color="pink"/></div>
   )
 }
 

@@ -1,24 +1,13 @@
-import { WEATHER, initialState } from "../../Constants/actionConstants";
+import { WEATHER } from "../../Constants/actionConstants";
 
-function fetchWeather(state:any = initialState, action:any){
+function fetchWeather(state:any = [], action:any){
     switch(action.type){
         case WEATHER.WEATHER_FETCH:
-            return {
-                ...state,
-                isLoading:true
-            }
+            return state
         case WEATHER.WEATHER_FETCH_SUCCESS:
-            return {
-                ...state,
-                isLoading: false,
-                data: action.weather
-            }
+            return action.weather
         case WEATHER.WEATHER_FETCH_ERROR:
-            return {
-                ...state,
-                error: action.error,
-                isLoading:false
-            }
+            return action.error
         default:
             return state
     }

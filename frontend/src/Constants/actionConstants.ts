@@ -12,9 +12,3 @@ export const CITIES:any = {
 
 export const SET_CITY = "SET_CITY"
 export const SET_DATE = "SET_DATE"
-
-export const initialState = {
-    isLoading: false,
-    error: null,
-    data: []
-}
